@@ -9,6 +9,7 @@ import RootLayout from "./layout/RootLayout.jsx";
 import Apps from "./pages/apps/Apps.jsx";
 import InstallApps from "./pages/InstallApps/InstallApps.jsx";
 import NotFoundPage from "./pages/NOtFoundPage/NotFoundPage.jsx";
+import Homepage from "./pages/homepage/Homepage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
       {
         // path: '/',
         index: true,
-        element: <h2>Home Page</h2>,
+        element: <Homepage />,
       },
       {
         path: "/apps",

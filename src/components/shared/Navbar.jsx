@@ -2,31 +2,48 @@ import React from "react";
 import logoImg from "../../assets/images/logo.png";
 import { Link, NavLink } from "react-router";
 import { FaGithub } from "react-icons/fa";
+import MyNavLink from "./MyNavLink";
 
 const Navbar = () => {
+  const navItems = [
+    {
+      path: "/",
+      text: "Home",
+    },
+    {
+      path: "/apps",
+      text: "Apps",
+    },
+    {
+      path: "/installedApps",
+      text: "Installation",
+    },
+    /* {
+      path: "/dashboard",
+      text: "Dashboard",
+    }, */
+  ];
+
   return (
     <>
       <nav className="shadow">
         <div className="flex justify-between gap-4 items-center py-2 container mx-auto">
           <img src={logoImg} alt="logo" className="w-12" />
           <ul className="flex justify-between gap-2 items-center">
-            <li>
-              <NavLink
-                to={"/"}
-                className={(obj) => {
-                  console.log(obj.isActive);
-                  // return    `${isActive ? "bg-red-500" : "bg-yellow-500"
-                }}
-              >
-                Home
-              </NavLink>
+            {navItems.map((item, index) => (
+              <MyNavLink key={index} to={item.path}>
+                {item.text}
+              </MyNavLink>
+            ))}
+            {/* <li>
+              <MyNavLink to={"/"}>Home</MyNavLink>
             </li>
             <li>
-              <NavLink to={"/apps"}>Apps</NavLink>
+              <MyNavLink to={"/apps"}>Apps</MyNavLink>
             </li>
             <li>
-              <NavLink to={"/installedApps"}>Installation</NavLink>
-            </li>
+              <MyNavLink to={"/installedApps"}>Installation</MyNavLink>
+            </li> */}
           </ul>
           <button className="btn bg-purple-500 text-white">
             <FaGithub />
